@@ -1,0 +1,36 @@
+<!--pages/danci/danci.wxml-->
+<!--显示基本单词信息  -->
+<view class="container" wx:if="{{showjb}}">
+    <text class="word-content">{{storageContent.word}}</text>
+    <view class="pron-container">
+      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    </view>
+    <view class="button-miss" catchtap="killdanci">
+      <text class="word-miss"  >斩</text>
+    </view>
+    <view class="button-next" catchtap='scdanci'>
+      <text class="word-next"  >收藏</text>
+    </view>
+    <view class="button-miss" catchtap='tishianniu'>
+     <text class="word-next"  >请求提示</text>
+    </view>
+</view>
+<!--单词的api  -->
+
+<!--显示基本单词详细信息  -->
+<view class="container" wx:if="{{showxx}}">
+    <text class="word-content">{{storageContent.word}}</text>
+    <view class="pron-container">
+      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    </view>
+     <text  class="word-definition">{{storageContent.translate1}}</text> 
+     <view class="button-miss" catchtap="killdancixx">
+      <text class="word-miss"  >斩</text>
+    </view> 
+    <view style=' margin-bottom: 150rpx' class="button-next" catchtap='nextgo'>
+      <text class="word-next"  >下一步</text>
+    </view>
+</view>
+

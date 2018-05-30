@@ -1,7 +1,0 @@
-<view wx:for="{{list}}" wx:key="name">
-  <view>{{item.name}}:{{item.price}}</view>
-</view>
-<view>
-<image src='https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=3ad4bba94b540923aa696478aa63b634/f3d3572c11dfa9ec3d76139d60d0f703908fc1e4.jpg'></image>
-<text>最不屑一顾的是</text>
-</view>

@@ -1,0 +1,5 @@
+<!--pages/mapOne/mapOne.wxml-->
+<map id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="15" controls="{{controls}}" class='map' 
+bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location>
+</map>
+<button class="btn" type="primary" bindtap="getPersonLocation">获取位置</button>

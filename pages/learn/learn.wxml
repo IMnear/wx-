@@ -1,0 +1,23 @@
+<!--pages/learn/learn.wxml-->
+<view class="container">
+<view class='head'>
+<view><icon class="weui-icon-search_in-box" type="search" size="33" style='margin-top:20rpx' ></icon></view>
+
+<view class='img' bindtap="gotome">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" ></image>
+</view>
+</view>
+
+<view class='body'>
+adas
+</view>
+  
+
+
+  
+  
+  <view class="button-miss" catchtap="godanci">
+    <text class="word-miss">开始背单词吧</text>
+  </view>
+
+</view>

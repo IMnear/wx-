@@ -1,0 +1,38 @@
+<view class="person-container">
+    <view class="person-container-login layout-row layout-center ">
+        <sc-button class="person-login"
+                   sc-class="sc-btn login-btn box-shadow-9" ripple
+                   id="login" 
+        >
+            <view wx:if="{{!isLogin}}" class="circle-dot-main">
+                <view class="circle-dot-container">
+                    <view class="circle-dot"></view>
+                </view>
+            </view>
+            <image  src="{{userInfo.avatarUrl}}"></image>
+            <!-- <text >{{userInfo.nickName}}</text> -->
+        </sc-button>
+        <view wx:if="{{isLogin}}" class="layout-column layout-start layout-space-around person-info">
+            <text class="text-3" style="font-weight:bolder">{{userInfo.nickName}}</text>
+            <text class="text-5">{{phoneHide}}</text>
+        </view>
+    </view>
+
+    <scroll-view scroll>
+      <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-people"
+                     right-icon="iconfont icon-right" bind:tap="goPage">个人信息
+            </sc-cell>
+            <sc-cell id="myhire" sc-class="person-cell" left-icon="iconfont icon-shop"
+                     right-icon="iconfont icon-right" bindtap="gotoct">错词本
+            </sc-cell>
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-service" bindtap="gotosc">收藏词汇</sc-cell>
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-sort" bindtap="gotoz">已掌握词汇情况</sc-cell>
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-settings">设置
+            </sc-cell>
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-appreciate">点个赞把</sc-cell>
+    </scroll-view>
+
+    <sc-button wx:if="{{isLogin}}" sc-class="sc-btn quit-btn" bind:tap="logout">
+        <text class="text-5">退出当前账号</text>
+    </sc-button>
+</view>

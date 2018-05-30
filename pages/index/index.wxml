@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<map id="map" longitude="114.483760" latitude="36.60229" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+<!-- <map id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="15" controls="{{controls}}" class='map' 
+bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location wx:if="{{map}}">
+    
+</map> -->
+<!-- <view wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
+</view> -->
+
+
+<!-- <view class="container" style='background:url("http://www.wugeek.com/test/rictor/img-3.jpg");-webkit-background-size:cover;'>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+     <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="user-motto">学习？不存在的</text>
+    </block> 
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class="group">
+    <block>
+      <icon bindtap="bindViewMapOne" type="success" size="40"/>
+    </block>
+  </view> 
+</view> -->

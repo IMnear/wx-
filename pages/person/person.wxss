@@ -1,0 +1,108 @@
+/* pages/person/person.wxss */
+.userinfo-avatar {
+  width: 328rpx;
+  height: 328rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.person-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #F4F4F3;
+}
+
+.person-container .person-container-login{
+    width: 100%;
+    background: -webkit-linear-gradient(#03A9F4, #81D4FA); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#03A9F4, #81D4FA); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#03A9F4, #81D4FA); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#03A9F4, #81D4FA); /* 标准的语法（必须放在最后） */
+    box-sizing: border-box;
+    padding-bottom: 30rpx;
+}
+
+.login-btn {
+    position: relative;
+    width: 240rpx;
+    height: 240rpx;
+    border-radius: 50%;
+    border: 2px solid #00EAFF;
+    background-color: white;
+    overflow: visible;
+    font-size: 14px;
+}
+
+.person-cell{
+    background-color: white;
+}
+
+.quit-btn{
+    height: 42px;
+    margin-top: 18px;
+    background-color: white;
+}
+
+.circle-dot-main{
+    position: absolute;
+    width: 247.5rpx;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.circle-dot-container{
+    width: 100%;
+    animation: circle-animate 3s linear infinite;
+    -moz-animation: circle-animate 3s linear infinite;
+    -webkit-animation: circle-animate 3s linear infinite;
+    -o-animation: circle-animate 3s linear infinite;
+    animation-direction: normal;
+    transform: rotate(0deg);
+}
+
+.circle-dot-container .circle-dot{
+    position: absolute;
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+    background-color: #3C8CE7;
+    left: 0;
+    top: 0;
+}
+
+
+@keyframes circle-animate {
+    form{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.person-login{
+    position: relative;
+    overflow: visible;
+    margin: 10px;
+}
+
+
+.person-login image{
+    width: 240rpx;
+    height: 240rpx;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.person-container-login .person-info{
+    text-align: left;
+    flex: 0 1 35%;
+}
+
+.icon-shop{
+    color: red;
+}
+.icon-people{
+    color: blue;
+}

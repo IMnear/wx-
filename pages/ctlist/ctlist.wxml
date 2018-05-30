@@ -1,0 +1,34 @@
+<!--pages/ctlist/ctlist.wxml-->
+<view class="learn-container" wx:if="{{showjb}}">
+  <view class="">
+  <view class="page__hd" style='justify-content: center; display: flex;  flex-direction: row;  '>
+        <view class="page__title">
+        <text>错题本:</text>
+        <text>您一共有{{cwdclist.length}}错词</text>
+        </view>
+        
+    </view>
+    <scroll-view scroll>
+      <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-round_close_fill_light" right-icon="iconfont icon-right" bindtap="gotoitem" wx:for="{{cwdclist}}" wx:for-index="index" wx:key="item" data-word="{{item}}">
+     \n\n\n {{item.word.word}}/你的错误次数{{item.appearCount}}
+      </sc-cell>
+
+    </scroll-view>
+  </view>
+</view>
+
+<!--显示基本单词详细信息  -->
+<view class="container" wx:if="{{showxx}}">
+    <text class="word-content">{{storageContent.word}}</text>
+    <view class="pron-container">
+      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    </view>
+     <text  class="word-definition">{{storageContent.translate1}}</text> 
+     <view class="button-miss" catchtap="gotojb">
+      <text class="word-miss"  >返回列表</text>
+    </view> 
+    <view class="button-miss" catchtap="zwgolist" >
+      <text class="word-miss"  >斩</text>
+    </view> 
+</view>

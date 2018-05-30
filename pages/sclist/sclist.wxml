@@ -1,0 +1,31 @@
+<!--pages/ctlist/ctlist.wxml-->
+<view class="learn-container" wx:if="{{showjb}}">
+  <view class="">
+  <view class="page__hd" style='justify-content: center; display: flex;  flex-direction: row;  '>
+        <view class="page__title">
+        <text>您一共收藏：{{cwdclist.length}}单词</text>
+        </view>
+        
+    </view>
+    <scroll-view scroll>
+      <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-round_favor_fill" right-icon="iconfont icon-right" bindtap="gotoitem" wx:for="{{cwdclist}}" wx:for-index="index" wx:key="item" data-word="{{item}}">
+     <text> {{item.word}}</text>
+      </sc-cell>
+
+    </scroll-view>
+  </view>
+</view>
+
+<!--显示基本单词详细信息  -->
+<view class="container" wx:if="{{showxx}}">
+    <text class="word-content">{{storageContent.word}}</text>
+    <view class="pron-container">
+      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    </view>
+     <text  class="word-definition">{{storageContent.translate1}}</text> 
+     <view class="button-miss" catchtap="gotojb">
+      <text class="word-miss"  >返回列表</text>
+    </view> 
+    
+</view>
