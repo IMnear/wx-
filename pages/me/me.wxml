@@ -1,0 +1,28 @@
+<view class="person-container">
+  <view class="person-container-login layout-row layout-center ">
+    <sc-button class="person-login" sc-class="sc-btn login-btn box-shadow-9" ripple id="login">
+      <view wx:if="{{!isLogin}}" class="circle-dot-main">
+        <view class="circle-dot-container">
+          <view class="circle-dot"></view>
+        </view>
+      </view>
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <!-- <text >{{userInfo.nickName}}</text> -->
+    </sc-button>
+    <view wx:if="{{isLogin}}" class="layout-column layout-start layout-space-around person-info">
+      <text class="text-3" style="font-weight:bolder">{{userInfo.nickName}}</text>
+      <text class="text-5">{{phoneHide}}</text>
+    </view>
+  </view>
+
+  <scroll-view scroll>
+    <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-upstage">排名: 1
+    </sc-cell>
+    <sc-cell id="myhire" sc-class="person-cell" left-icon="iconfont icon-favor_fill_light" bindtap="gotoct">已斩单词: {{yzcd}}
+    </sc-cell>
+    <sc-cell sc-class="person-cell" left-icon="iconfont icon-light" bindtap="gotosc">已收藏词汇: {{sccd}}</sc-cell>
+    <sc-cell sc-class="person-cell" left-icon="iconfont icon-round_close_fill_light" bindtap="gotoz">错误单词: {{cwcd}}</sc-cell>
+  </scroll-view>
+
+
+</view>

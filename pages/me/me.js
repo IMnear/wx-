@@ -13,21 +13,15 @@ Page({
     zdclist: [],
     cwdc: false,
     cwdclist: [],
+    yzcd: '',
+    sccd: '',
+    cwcd: '',
+    pm:'',
     //用户个人信息  
     userInfo: {
       avatarUrl: "",//用户头像  
       nickName: "",//用户昵称  
-    },
-    // 动画效果
-    animationData: {}
-  },
-  // 跳转个人信息界面
-  gotome: function () {
-    console.log('a a a ')
-    wx.navigateTo({
-      url: '../me/me'
-    })
-
+    }  
   },
   // 跳转到已掌握列表
   gotoz: function () {
@@ -138,7 +132,7 @@ Page({
               that.setData({
 
                 zdclist: res.data.result,
-                zdc: true,
+                zcd: true,
 
               })
 
@@ -297,7 +291,103 @@ Page({
           [nickName]: res.userInfo.nickName,
         })
       }
-    })  
+    })
+      // 开始获取初始数据
+    
+    wx.getStorage({
+      //获取数据的key
+      key: 'token',
+      success: function (res) {
+        console.log(res)
+        // 获取错误单词数量
+        wx.request({
+          url: "https://vczyh.top/wxapp/v1.0/user/words/appear/list/DESC/" + res.data.result,
+          // data: data,
+          method: 'POST',
+          header: {
+            // "Content-Type":"application/json"
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.message === "success") {
+              that.setData({
+
+               
+                cwcd: res.data.result.length,
+
+              })
+
+            }
+
+
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+
+        })
+        // 获取斩单词数量
+        wx.request({
+          url: "https://vczyh.top/wxapp/v1.0/user/words/remember/count/" + res.data.result,
+          // data: data,
+          method: 'POST',
+          header: {
+            // "Content-Type":"application/json"
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.message === "success") {
+              that.setData({
+
+                yzcd: res.data.result,
+                
+
+              })
+
+            }
+
+
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+
+        })
+        // 获取收藏单词数量
+        wx.request({
+          url: "https://vczyh.top/wxapp/v1.0/user/words/collect/list/" + res.data.result,
+          // data: data,
+          method: 'POST',
+          header: {
+            // "Content-Type":"application/json"
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.message === "success") {
+              that.setData({
+
+               
+                sccd: res.data.result.length,
+
+              })
+
+            }
+
+
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+
+        })
+      },
+      /**
+       * 失败会调用
+       */
+      fail: function (res) {
+        console.log(res)
+      }
+    })
   
   },
 
@@ -312,52 +402,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 动画
-    var animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-    })
-
-    this.animation = animation
-
-    animation.scale(2, 2).rotate(45).step()
-
-    this.setData({
-      animationData: animation.export()
-    })
-
-    setTimeout(function () {
-      animation.translate(30).step()
-      this.setData({
-        animationData: animation.export()
-      })
-    }.bind(this), 1000)
-  },
-  rotateAndScale: function () {
-    // 旋转同时放大
-    this.animation.rotate(45).scale(2, 2).step()
-    this.setData({
-      animationData: this.animation.export()
-    })
-  },
-  rotateThenScale: function () {
-    // 先旋转后放大
-    this.animation.rotate(45).step()
-    this.animation.scale(2, 2).step()
-    this.setData({
-      animationData: this.animation.export()
-    })
-  },
-  rotateAndScaleThenTranslate: function () {
-    // 先旋转同时放大，然后平移
-    this.animation.rotate(45).scale(2, 2).step()
-    this.animation.translate(100, 100).step({ duration: 1000 })
-    this.setData({
-      animationData: this.animation.export()
-    })
-  },
-
   
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

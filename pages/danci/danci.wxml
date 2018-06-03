@@ -1,4 +1,7 @@
 <!--pages/danci/danci.wxml-->
+<!-- <view catchtap="xzCity">
+选择城市
+</view> -->
 <!--显示基本单词信息  -->
 <view class="container" wx:if="{{showjb}}">
     <text class="word-content">{{storageContent.word}}</text>

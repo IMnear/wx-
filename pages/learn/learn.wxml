@@ -1,23 +1,85 @@
 <!--pages/learn/learn.wxml-->
 <view class="container">
-<view class='head'>
-<view><icon class="weui-icon-search_in-box" type="search" size="33" style='margin-top:20rpx' ></icon></view>
+  <view class='head'>
+    <view bindtap='ssdanci'>
+      <icon class="weui-icon-search_in-box" type="search" size="33" style='margin-top:20rpx'></icon>
+    </view>
 
-<view class='img' bindtap="gotome">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" ></image>
-</view>
-</view>
+    <view class='img'  bindtap='gotome'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+  </view>
 
-<view class='body'>
-adas
-</view>
-  
+  <view id='body'>
+    <view class="weui-flex" style='margin-top:40rpx'>
+      <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
+        <view class="placeholder" style='font-family: Chalkboard;'>剩余</view>
+        <view class="placeholder" style='font-size: 80rpx'>{{ineeddc}}</view>
+      </view>
+      <view class="weui-flex__item" style='display: flex;flex-direction: column; align-items: center;'>
+        <view class="placeholder" style='margin：40rpx'>学习</view>
+        <view class="placeholder" style='font-size: 80rpx'>998</view>
+      </view>
+    </view>
+    
+    <view class='line-css'>
+    </view>
+    <view class="weui-flex" style='margin-left: 10rpx;font-size: 30rpx'>
+      <view class="weui-flex__item" bindtap='goctlist'>
+        <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;'>错误单词</view>
+      </view>
+      <view class="weui-flex__item" bindtap='gozlist'>
+        <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;'>已斩单词</view>
+      </view>
+      <view class="weui-flex__item" bindtap='gosclist'>
+        <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;margin-right: 10rpx;'>收藏单词</view>
+      </view>
+    </view>
+    <view class="weui-flex" id='jdt'>
+      <view>
+        <view class="placeholder">
+          <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx'>
+            <view class="placeholder" style='margin：40rpx;font-family: Chalkboard;'>出发点</view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindAccountChange" value="{{accountIndex}}" range="{{accounts}}">
+                        <view class="weui-select">{{accounts[accountIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-flex__item" style='margin: 40rpx;'>
+        <progress percent="80" active stroke-width="12" />
+        <button class="weui-btn mini-btn" type="primary" size="mini" bindtap='qrlt'>确认旅途</button>
+      </view>
+      <view>
+        <view class="placeholder">
+          <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx; '>
+            <view class="placeholder" style='margin：40rpx;font-family: Chalkboard;'>目的地</view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindAccountChangeto" value="{{accountIndexto}}" range="{{accountsto}}">
+                        <view class="weui-select">{{accountsto[accountIndexto]}}</view>
+                    </picker>
+                </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
 
 
-  
-  
+  </view>
+
+
+
+
+
   <view class="button-miss" catchtap="godanci">
     <text class="word-miss">开始背单词吧</text>
   </view>
+
 
 </view>

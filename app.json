@@ -10,7 +10,10 @@
     "pages/ctlist/ctlist",
     "pages/learn/learn",
     "pages/sclist/sclist",
-    "pages/zlist/zlist"
+    "pages/zlist/zlist",
+    "pages/search/search",
+    "pages/me/me"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

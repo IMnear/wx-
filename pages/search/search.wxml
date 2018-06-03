@@ -1,0 +1,51 @@
+<!--search.wxml-->
+<view class="search" wx:if="{{showjb}}">
+    <view class="search-top">
+        <view class="search-input layout-row layout-center box-shadow-5" style="padding: 8px;box-sizing: border-box">
+            <text class="iconfont icon-search text-secondary text-bolder" style="margin-right: 8px"></text>
+            <input class="sc-input text-5" confirm-type="search" style="border: none" placeholder="搜索单词：中文/英文..."
+                   bindinput="setSearchInfo" bindconfirm="searchInfo" value="{{searchValue}}"/>
+            <sc-button class="search-cancel-btn {{searchValue ? 'search-cancel-btn-active' :''}}" sc-class="sc-btn"
+                       bind:tap="cancelSearch">
+                <text class="text-5 text-secondary">取消</text>
+            </sc-button>
+        </view>
+    </view>
+    <view style='display: flex;flex-direction: row;justify-content: center;margin-top: 20%' wx:if="{{showts}}">sorry,没有搜索到相关单词~</view>
+    <scroll-view scroll wx:if="{{showssjg}}">
+      <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-round_favor_fill" right-icon="iconfont icon-right" bindtap="gotoitem" wx:for="{{showlist}}" wx:for-index="index" wx:key="item" data-word="{{item}}">
+     <text> {{item.word}}</text>
+      </sc-cell>
+    
+
+    </scroll-view>
+    <view class="search-container">
+        <view class="search-history layout-column layout-start-center">
+            <view class="layout-row layout-center layout-space-between" style="width: 100%">
+                <text class="text-5 text-secondary text-bolder">搜索历史</text>
+                <view hover-class="search-history-item-hover" bind:tap="clearSearchHistory">
+                    <text class="iconfont icon-delete"></text>
+                </view>
+            </view>
+            <view class="search-history-list layout-row layout-start-center">
+                <view class="search-history-item layout-row layout-center" hover-class="search-history-item-hover" wx:for="{{searchHistoryList}}" wx:for-index="item" wx:key="ls">
+                    <text class="text-disabled" data-ss="{{searchHistoryList[item]}}" bindtap="ssls">{{searchHistoryList[item]}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--显示基本单词详细信息  -->
+<view class="container" wx:if="{{showxx}}">
+    <text class="word-content">{{storageContent.word}}</text>
+    <view class="pron-container">
+      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    </view>
+     <text  class="word-definition">{{storageContent.translate1}}</text> 
+     <view class="button-miss" catchtap="gotojb">
+      <text class="word-miss"  >返回搜索</text>
+    </view> 
+    
+</view>

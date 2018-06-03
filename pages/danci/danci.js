@@ -10,8 +10,19 @@ Page({
     showjb: true,
     showxx: false
   },
+
+  //选择城市
+  xzCity: function () {
+    wx.chooseLocation({
+      success: res => {
+        console.log(res)
+        //把res存到语亨的借口里就行
+      }
+    })
+  },
+
   // 收藏单词的方法
-  scdanci:function(){
+  scdanci: function () {
     var that = this;
     // 你居然连取值和赋值概念都不清晰
     var killdancimuqian = this.data.storageContent
@@ -26,7 +37,7 @@ Page({
         var ineedtoken = res.data.result
         console.log(ineedtoken, "token变量")
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/collect/" + ineedtoken,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/collect/" + ineedtoken,
           data: {
             // code: res.code
             wordId: killdancimuqian.wordId,
@@ -51,7 +62,7 @@ Page({
               })
               // 调用获取单词接口实现数据刷新
               wx.request({
-                url: "http://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
+                url: "https://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
                 // data: data,
                 method: 'POST',
                 header: {
@@ -109,7 +120,7 @@ Page({
         console.log(res)
 
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/" + res.data.result,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/" + res.data.result,
           // data: data,
           method: 'POST',
           header: {
@@ -159,7 +170,7 @@ Page({
         var ineedtoken = res.data.result
         console.log(ineedtoken, "token变量")
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
           data: {
             // code: res.code
             wordId: killdancimuqian.wordId,
@@ -184,7 +195,7 @@ Page({
               })
               // 调用获取单词接口实现数据刷新
               wx.request({
-                url: "http://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
+                url: "https://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
                 // data: data,
                 method: 'POST',
                 header: {
@@ -250,7 +261,7 @@ Page({
         var ineedtoken = res.data.result
         console.log(ineedtoken, "token变量")
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
           data: {
             // code: res.code
             wordId: killdancimuqian.wordId,
@@ -275,7 +286,7 @@ Page({
               })
               // 调用获取单词接口实现数据刷新
               wx.request({
-                url: "http://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
+                url: "https://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
                 // data: data,
                 method: 'POST',
                 header: {
@@ -337,7 +348,7 @@ Page({
         console.log(res)
 
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/appear/" + res.data.result,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/appear/" + res.data.result,
           // data: data,
           method: 'POST',
           data: {
@@ -416,7 +427,7 @@ Page({
         console.log(res)
 
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/" + res.data.result,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/" + res.data.result,
           // data: data,
           method: 'POST',
           header: {

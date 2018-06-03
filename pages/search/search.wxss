@@ -1,37 +1,76 @@
-.learn-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: #f4f4f3;
+/**testui.wxss**/
+.search{
+    padding: 8px;
+    background: rgb(244, 244, 243);
+    height: 100%
+}
+.search .search-top{
+    padding: 8px;
 }
 
-.learn-top {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 50%;
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2f80ed, #56ccf2); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2f80ed, #56ccf2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+.search-top .search-input, input{
+    border-radius: 8px;
 }
+
+.search-input .search-cancel-btn{
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all .2s ease-out;
+}
+
+.search-input .search-cancel-btn-active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sc-btn{
+    height: 32px;
+}
+
+.search .search-container{
+    margin-top: 32rpx;
+    padding: 8px;
+}
+
+.search-history{
+    margin-top: 16px;
+}
+
+.search-history .search-history-list{
+    width: 100%;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    align-content:flex-start;
+}
+
+.search-history-list .search-history-item{
+    background-color: #EFF2F4;
+    padding: 6px 16px;
+    text-align: center;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+}
+
+.search-history-list .search-history-item-hover{
+    background-color: #E0E2E4;
+}
+
+.search-history-item text{
+    font-size: 26rpx;
+    letter-spacing: 2rpx;
+    font-weight: 500
+}
+
 @font-face {
 font-family: Chalkboard;
 src: url('/assets/font/chalkboard.ttf'),
 }
-.head{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .container {
   display: flex;
   flex-direction: column;
-   align-items: center; 
+  align-items: center;
   height: 100%;
   justify-content: space-between;
   box-sizing: border-box;
@@ -73,15 +112,13 @@ src: url('/assets/font/chalkboard.ttf'),
 .button-miss {
   display: flex;
   flex-direction: column;
-  width: 460rpx;
-  height: 170rpx;
-  border: 2rpx solid #7eaedc;
+  width: 360rpx;
+  height: 70rpx;
+  border: 2rpx solid #353535;
   border-radius: 10rpx;
   align-items: center;
   margin-top: 157rpx;
   margin-bottom: 67rpx;
-  background: #7eaedc;
-  color: white;
 }
 
 button-missxx{
@@ -99,8 +136,8 @@ button-missxx{
 .word-miss {
   margin: auto;
   font-family: Songti TC;
-  font-size: 52rpx;
-  color: white;
+  font-size: 32rpx;
+  color: #585858;
 }
 
 .button-next {
@@ -126,62 +163,3 @@ button-missxx{
   height: 0;  
   color: transparent;  
 }  
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 88rpx;
-  height: 88rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-  float: left,
- 
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-.img{
-  position:absolute;
-  right: 0;
-  top:1rpx;
-  
-}
-#body{
-  border-radius: 45rpx;
-  width: 95%;
-  height: 55%;
-  background: white;
-  align-items: center; 
-  margin: 20rpx;
-  margin-top: 20%;
-  
-   
-  
-  
-}
-#body-r{
-
-display: flex;
-flex-direction: row;
-}
-.line-css {
-
-height: 3rpx;
-
-background: black;
-
-margin: 50rpx;
-
-}
-#jihua{
-  margin: 50rpx;
-}
-#jdt{
-  margin: 50rpx;
-  
-}

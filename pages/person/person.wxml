@@ -20,13 +20,13 @@
 
     <scroll-view scroll>
       <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-people"
-                     right-icon="iconfont icon-right" bind:tap="goPage">个人信息
+                     right-icon="iconfont icon-right" bindtap="gotome">个人信息
             </sc-cell>
             <sc-cell id="myhire" sc-class="person-cell" left-icon="iconfont icon-shop"
                      right-icon="iconfont icon-right" bindtap="gotoct">错词本
             </sc-cell>
-            <sc-cell sc-class="person-cell" left-icon="iconfont icon-service" bindtap="gotosc">收藏词汇</sc-cell>
-            <sc-cell sc-class="person-cell" left-icon="iconfont icon-sort" bindtap="gotoz">已掌握词汇情况</sc-cell>
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-service" right-icon="iconfont icon-right" bindtap="gotosc">收藏词汇</sc-cell>
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-sort" right-icon="iconfont icon-right" bindtap="gotoz">已掌握词汇情况</sc-cell>
             <sc-cell sc-class="person-cell" left-icon="iconfont icon-settings">设置
             </sc-cell>
             <sc-cell sc-class="person-cell" left-icon="iconfont icon-appreciate">点个赞把</sc-cell>
@@ -36,3 +36,4 @@
         <text class="text-5">退出当前账号</text>
     </sc-button>
 </view>
+<!-- <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view> -->

@@ -23,7 +23,7 @@ Page({
         console.log(res)
 
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/words/collect/list/" + res.data.result,
+          url: "https://vczyh.top/wxapp/v1.0/user/words/collect/list/" + res.data.result,
           // data: data,
           method: 'POST',
           header: {
@@ -86,7 +86,7 @@ Page({
         var ineedtoken = res.data.result
         console.log(ineedtoken, "token变量")
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
           data: {
             // code: res.code
             wordId: killdancimuqian.wordId,
@@ -111,7 +111,7 @@ Page({
               })
               // 调用获取错误单词接口实现数据刷新
               wx.request({
-                url: "http://vczyh.top/wxapp/v1.0/user/words/collect/list/" + ineedtoken,
+                url: "https://vczyh.top/wxapp/v1.0/user/words/collect/list/" + ineedtoken,
                 // data: data,
                 method: 'POST',
                 header: {
@@ -193,7 +193,7 @@ Page({
         console.log(res)
 
         wx.request({
-          url: "http://vczyh.top/wxapp/v1.0/user/words/remember/list/" + res.data.result,
+          url: "https://vczyh.top/wxapp/v1.0/user/words/remember/list/" + res.data.result,
           // data: data,
           method: 'POST',
           header: {
