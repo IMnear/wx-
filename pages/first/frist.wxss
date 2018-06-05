@@ -1,0 +1,118 @@
+/* pages/first/frist.wxss */
+.swiper {
+  height: 100%;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+
+#mygo{
+  background:#7eaedc;
+  margin: 12rpx;
+  z-index: 9999999
+}
+#one{
+background: #304352;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #d7d2cc, #304352);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #d7d2cc, #304352); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#two{
+  background: #304352;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #d7d2cc, #304352);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #d7d2cc, #304352); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#three{
+ background: linear-gradient(to bottom, #ece4d9 0%,#e9dfd1 100%);
+
+}
+.milky {
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  text-transform: uppercase;
+  display: block;
+  font-size: 92px;
+  color: #f1ebe5;
+  text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+  font-weight: bold;
+  letter-spacing: -4px;
+  text-align: center;
+  background: linear-gradient(to bottom, #ece4d9 0%,#e9dfd1 100%);
+  position: absolute;
+  padding: 100px 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 20px;
+}
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 3px 3px rgba(0, 0, 0, 0.15), 0 3px 2px -2px rgba(0, 0, 0, 0.2);
+	font-weight: bold;
+	color: #fff;
+	font-size: 1.25em;
+	text-shadow: 0 -0.5px 1px rgba(0, 0, 0, 0.15);
+}
+
+.button {
+	padding: 1.5em 3em;
+	margin: 0;
+	position: relative;
+	min-width: 250px;
+	display: inline-block;
+}
+
+.button.styl-material {
+	-webkit-transition: 200ms background cubic-bezier(0.4, 0, 0.2, 1);
+	transition: 200ms background cubic-bezier(0.4, 0, 0.2, 1);
+	background: #E91E63;
+}
+
+.button.styl-material:hover,
+.button.styl-material:focus {
+	outline: none;
+	background: #EC407A;
+}
+
+.ripple-obj {
+	height: 100%;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+	fill: #AD1457;
+}
+
+.ripple-obj use {
+	opacity: 0;
+}
+
+/* Colors */
+.theme-2 .button.styl-material {
+	background: #2196F3;
+}
+
+.theme-2 .button.styl-material:hover,
+.theme-2 .button.styl-material:focus {
+	background: #2b9bf4;
+}
+
+.theme-3 .button.styl-material {
+	background: #009688;
+}
+
+.theme-3 .button.styl-material:hover,
+.theme-3 .button.styl-material:focus {
+	background: #26A69A;
+}
+
+.theme-3 .ripple-obj {
+	fill: #00695C;
+}

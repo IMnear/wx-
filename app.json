@@ -1,19 +1,17 @@
 {
   "pages": [
+    "pages/first/frist",
+    "pages/learn/learn",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/map/map",
-    "pages/mapOne/mapOne",
     "pages/person/person",
     "pages/danci/danci",
     "pages/paiming/paiming",
     "pages/ctlist/ctlist",
-    "pages/learn/learn",
     "pages/sclist/sclist",
     "pages/zlist/zlist",
     "pages/search/search",
     "pages/me/me"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,16 +26,16 @@
     "backgroundColr": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/learn/learn",
         "iconPath": "resources/img/home.png",
         "selectedIconPath": "resources/img/home (1).png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/learn/learn",
-        "iconPath": "resources/img/form_fill_light.png",
-        "selectedIconPath": "resources/img/form_fill_light (1).png",
-        "text": "背词"
+        "pagePath": "pages/index/index",
+        "iconPath": "resources/img/map (1).png",
+        "selectedIconPath": "resources/img/map.png",
+        "text": "地图"
       },
       {
         "pagePath": "pages/paiming/paiming",

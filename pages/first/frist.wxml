@@ -1,0 +1,30 @@
+<!--pages/first/frist.wxml-->
+<!-- <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" style='z-index: 1'>    
+      <block wx:for="{{movies}}" wx:key="tu" wx:for-index="index">    
+        <swiper-item>    
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>    
+        </swiper-item>    
+      </block>    
+      <button id='mygo' open-type="getUserInfo" bindtap='go' >开始背词之旅吧！！</button>
+  </swiper>     -->
+ <!--是否显示圆点，自动播放， 间隔时间， 监听滚动和点击事件-->
+<swiper indicator-dots="true" autoplay="true" duration="1000" class="swiper">
+<!--swiper-item只能包含一个节点再多会自动删除-->
+    <swiper-item>
+        <view class="milky" style="height: 100%">一词斩</view>
+    </swiper-item>
+    <swiper-item>
+         <view id='two' style="height: 100%">
+         <image src='https://vczyh.top/image/xx.png'></image>
+         </view>
+    </swiper-item>
+        <swiper-item>
+          <view id='three' style=" height: 100%">
+          <view style=" height: 80%"><image src='https://vczyh.top/image/IMG_4208.JPG'></image></view>
+          <view style=' margin-bottom: : 20px'>
+          <button id='mygo' open-type="getUserInfo" bindtap='go' style=' margin: 20px' >开始背词之旅吧！！</button>
+          </view>   
+          </view>
+    </swiper-item>    
+</swiper>
+

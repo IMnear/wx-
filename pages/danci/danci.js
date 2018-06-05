@@ -169,11 +169,18 @@ Page({
         console.log(res)
         var ineedtoken = res.data.result
         console.log(ineedtoken, "token变量")
+        var lv = wx.getStorageSync('lv');
+        var ineedstartPointId = lv.startPoint.id
+        var ineedendPointId = lv.endPoint.id
+        console.log('取出的储存-起点id-终点id', lv, ineedstartPointId, ineedendPointId)
         wx.request({
-          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/map/" + ineedtoken,
           data: {
             // code: res.code
             wordId: killdancimuqian.wordId,
+            startPointId: ineedstartPointId,
+            endPointId: ineedendPointId,
+
 
           },
           method: 'POST',
@@ -258,13 +265,19 @@ Page({
       key: 'token',
       success: function (res) {
         console.log(res)
+        var lv = wx.getStorageSync('lv');
+        var ineedstartPointId = lv.startPoint.id
+        var ineedendPointId = lv.endPoint.id
+        console.log('取出的储存-起点id-终点id', lv, ineedstartPointId, ineedendPointId)
         var ineedtoken = res.data.result
         console.log(ineedtoken, "token变量")
         wx.request({
-          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/" + ineedtoken,
+          url: "https://vczyh.top/wxapp/v1.0/user/word/remember/map/" + ineedtoken,
           data: {
             // code: res.code
             wordId: killdancimuqian.wordId,
+            startPointId: ineedstartPointId,
+            endPointId: ineedendPointId,
 
           },
           method: 'POST',

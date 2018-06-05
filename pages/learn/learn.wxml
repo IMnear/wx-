@@ -18,7 +18,7 @@
       </view>
       <view class="weui-flex__item" style='display: flex;flex-direction: column; align-items: center;'>
         <view class="placeholder" style='margin：40rpx'>学习</view>
-        <view class="placeholder" style='font-size: 80rpx'>998</view>
+        <view class="placeholder" style='font-size: 80rpx'>{{alldc}}</view>
       </view>
     </view>
     
@@ -51,7 +51,7 @@
         </view>
       </view>
       <view class="weui-flex__item" style='margin: 40rpx;'>
-        <progress percent="80" active stroke-width="12" />
+        <progress percent="{{jdt}}" active stroke-width="12" />
         <button class="weui-btn mini-btn" type="primary" size="mini" bindtap='qrlt'>确认旅途</button>
       </view>
       <view>
