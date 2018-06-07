@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    first: '第一名'
 
   },
   // 转发按钮
@@ -20,59 +20,88 @@ Page({
     }
   },
 
-  pause: function (){
-    
-
-    const innerAudioContext = wx.createInnerAudioContext()
-    console.log(innerAudioContext)
-    innerAudioContext.onStop(() => {
-      console.log('暂停播放')
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
+    //获取当前登陆用户排名
     wx.getStorage({
       key: 'token',
       success: res => {
-        console.log(this)
         console.log(res.data)
         wx.request({
-          url: 'https://vczyh.top/wxapp/v1.0/all/users/words/remember/count',
+          url: 'https://vczyh.top/wxapp/v1.0/user/ranking/' + res.data.result,
           method: 'POST',
           success: res => {
-            console.log(res.data.result)
+            console.log(res.data)
+
             this.setData({
-              firstHeadUri: res.data.result[0].user.headUri,
-              firstNickname: res.data.result[0].user.nickname
-            })
-            this.setData({
-              items: res.data.result
+              myMingci: res.data.result,
             })
           }
         })
       }
     })
+
+    //获取当前登陆用户个人信息
+    wx.getStorage({
+      key: 'token',
+      success: res => {
+        console.log(res.data)
+        wx.request({
+          url: 'https://vczyh.top/wxapp/v1.0/userinfo/' + res.data.result,
+          method: 'POST',
+          success: res => {
+            console.log(res.data)
+            this.setData({
+              myNickname: res.data.result.nickname,
+              myHeadUri: res.data.result.headUri
+            })
+          }
+        })
+      }
+    })
+
+    //获取当前登陆用户斩的单词数
+    wx.getStorage({
+      key: 'token',
+      success: res => {
+        console.log(res.data)
+        wx.request({
+          url: 'https://vczyh.top/wxapp/v1.0/user/words/remember/count/' + res.data.result,
+          method: 'POST',
+          success: res => {
+            console.log(res.data)
+            this.setData({
+              myRememberCount: res.data.result,
+            })
+          }
+        })
+      }
+    })
+
+    wx.request({
+      url: 'https://vczyh.top/wxapp/v1.0/all/users/words/remember/count',
+      method: 'POST',
+      success: res => {
+        console.log(res.data.result)
+        this.setData({
+          firstHeadUri: res.data.result[0].user.headUri,
+          firstNickname: res.data.result[0].user.nickname
+        })
+        this.setData({
+          items: res.data.result
+        })
+      }
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // 播放音乐
-    const innerAudioContext = wx.createInnerAudioContext()
-    innerAudioContext.autoplay = true
-    innerAudioContext.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46'
-    innerAudioContext.onPlay(() => {
-      console.log('开始播放')
-    })
-
-    innerAudioContext.onError((res) => {
-      console.log(res.errMsg)
-      console.log(res.errCode)
-    })
 
   },
 

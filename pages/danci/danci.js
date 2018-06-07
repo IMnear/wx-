@@ -50,7 +50,7 @@ Page({
           success: function (res) {
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
-              // 斩词消息提示
+              // 掌握词消息提示
               wx.showToast({ // 显示Toast
 
                 title: '收藏单词成功',
@@ -154,12 +154,12 @@ Page({
       }
     })
   },
-  // 详细信息里的斩
+  // 详细信息里的掌握
   killdancixx: function () {
     var that = this;
     // 你居然连取值和赋值概念都不清晰
     var killdancimuqian = this.data.storageContent
-    console.log("点击斩的单词信息wordId", killdancimuqian.wordId)
+    console.log("点击掌握的单词信息wordId", killdancimuqian.wordId)
     // 把本地存储的token拿出来
 
     wx.getStorage({
@@ -190,10 +190,10 @@ Page({
           success: function (res) {
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
-              // 斩词消息提示
+              // 掌握词消息提示
               wx.showToast({ // 显示Toast
 
-                title: '斩词成功',
+                title: '掌握词成功',
 
                 icon: 'success',
 
@@ -252,12 +252,12 @@ Page({
 
 
   },
-  // 斩词按钮点击事件
+  // 掌握词按钮点击事件
   killdanci: function (options) {
     var that = this;
     // 你居然连取值和赋值概念都不清晰
     var killdancimuqian = this.data.storageContent
-    console.log("点击斩的单词信息wordId", killdancimuqian.wordId)
+    console.log("点击掌握的单词信息wordId", killdancimuqian.wordId)
     // 把本地存储的token拿出来
 
     wx.getStorage({
@@ -287,10 +287,10 @@ Page({
           success: function (res) {
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
-              // 斩词消息提示
+              // 掌握词消息提示
               wx.showToast({ // 显示Toast
 
-                title: '斩词成功',
+                title: '掌握词成功',
 
                 icon: 'success',
 
@@ -352,7 +352,7 @@ Page({
     var that = this;
 
     var killdancimuqian = this.data.storageContent
-    console.log("点击斩的单词信息wordId", killdancimuqian.wordId)
+    console.log("点击掌握的单词信息wordId", killdancimuqian.wordId)
     // 把本地存储的token拿出来
     wx.getStorage({
       //获取数据的key

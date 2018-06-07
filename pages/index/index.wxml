@@ -2,18 +2,5 @@
 <!-- <view catchtap="xzCity">
   选择城市
 </view> -->
- <map id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="16" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: {{map_width}}px; height: {{map_height}}px;"></map> 
-
-<!-- <view class="container" style='background:url("http://www.wugeek.com/test/rictor/img-3.jpg");-webkit-background-size:cover;'>
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    </block>
-  </view>
-  <view class="group">
-    <block>
-      <icon bindtap="bindViewMapOne" type="success" size="40" />
-    </block>
-  </view>
-</view> -->
+<map id="map" longitude="{{mylongitude}}" latitude="{{mylatitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: {{map_width}}px; height: {{map_height}}px;">
+</map>

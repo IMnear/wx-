@@ -70,12 +70,12 @@ Page({
 
   },
 
-  // 斩单词（掌握单词并返回列表）
+  // 掌握单词（掌握单词并返回列表）
   zwgolist: function (options) {
     var that = this;
     // 你居然连取值和赋值概念都不清晰
     var killdancimuqian = this.data.storageContent
-    console.log("点击斩的单词信息wordId", killdancimuqian.wordId)
+    console.log("点击掌握的单词信息wordId", killdancimuqian.wordId)
     // 把本地存储的token拿出来
 
     wx.getStorage({
@@ -105,10 +105,10 @@ Page({
           success: function (res) {
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
-              // 斩词消息提示
+              // 掌握词消息提示
               wx.showToast({ // 显示Toast
 
-                title: '斩词成功',
+                title: '掌握词成功',
 
                 icon: 'success',
 

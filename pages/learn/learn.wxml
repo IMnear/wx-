@@ -14,7 +14,9 @@
     <view class="weui-flex" style='margin-top:40rpx'>
       <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
         <view class="placeholder" style='font-family: Chalkboard;'>剩余</view>
-        <view class="placeholder" style='font-size: 80rpx'>{{ineeddc}}</view>
+        <!-- <view class="placeholder" style='font-size: 80rpx'>{{ineeddc}}</view> -->
+        <view class="placeholder" style='font-size: 80rpx' wx:if="{{ineeddc > 0}}"> {{ineeddc}} </view>
+      <view wx:else> 恭喜您已经到达目的地，请重新选择旅途 </view>
       </view>
       <view class="weui-flex__item" style='display: flex;flex-direction: column; align-items: center;'>
         <view class="placeholder" style='margin：40rpx'>学习</view>
@@ -29,7 +31,7 @@
         <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;'>错误单词</view>
       </view>
       <view class="weui-flex__item" bindtap='gozlist'>
-        <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;'>已斩单词</view>
+        <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;'>已掌握单词</view>
       </view>
       <view class="weui-flex__item" bindtap='gosclist'>
         <view class="placeholder" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx;margin-left: 10rpx;margin-right: 10rpx;'>收藏单词</view>

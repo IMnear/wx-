@@ -8,7 +8,7 @@
       <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
     </view>
     <view class="button-miss" catchtap="killdanci">
-      <text class="word-miss"  >斩</text>
+      <text class="word-miss"  >掌握</text>
     </view>
     <view class="button-next" catchtap='scdanci'>
       <text class="word-next"  >收藏</text>
@@ -28,7 +28,7 @@
     </view>
      <text  class="word-definition">{{storageContent.translate1}}</text> 
      <view class="button-miss" catchtap="killdancixx">
-      <text class="word-miss"  >斩</text>
+      <text class="word-miss"  >掌握</text>
     </view> 
     <view style=' margin-bottom: 150rpx' class="button-next" catchtap='nextgo'>
       <text class="word-next"  >下一步</text>

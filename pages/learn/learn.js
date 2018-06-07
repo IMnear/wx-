@@ -213,7 +213,7 @@ Page({
     })
 
   },
-  // 跳转斩单词页面
+  // 跳转掌握单词页面
   gozlist: function () {
 
     wx.navigateTo({

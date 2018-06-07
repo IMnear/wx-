@@ -29,6 +29,6 @@
       <text class="word-miss"  >返回列表</text>
     </view> 
     <view class="button-miss" catchtap="zwgolist" >
-      <text class="word-miss"  >斩</text>
+      <text class="word-miss"  >掌握</text>
     </view> 
 </view>

@@ -38,17 +38,29 @@ Page({
 
   onLoad: function () {
 
+    //获取当前登陆用户个人信息
+    wx.getStorage({
+      key: 'token',
+      success: res => {
+        console.log(res.data)
+
+      }
+    })
     if (wx.getStorageSync('lv')) {
       console.log('进入到第一')
       var qDzDData = wx.getStorageSync('lv');
+      console.log(qDzDData)
       var zd = qDzDData.endPoint;
       var qd = qDzDData.startPoint;
+      var zdname = qDzDData.endPoint.nameCustom
+
       wx.getStorage({
         key: 'token',
         success: res => {
           console.log(res.data)
+          var token = res.data.result
           wx.request({
-            url: 'https://vczyh.top/wxapp/v1.0/usermap/fetch/PresentCoord/' + res.data.result,
+            url: 'https://vczyh.top/wxapp/v1.0/usermap/fetch/PresentCoord/' + token,
             method: 'POST',
             data: {
               startPointId: qd.id,
@@ -59,94 +71,115 @@ Page({
               var needWordCount = res.data.result.needWordCount;
               var moveLatitude = res.data.result.latitude;
               var moveLongitude = res.data.result.longitude
-              var markers_new = [];
               wx.request({
-                url: 'https://vczyh.top/wxapp/v1.0/all/users',
+                url: 'https://vczyh.top/wxapp/v1.0/userinfo/' + token,
                 method: 'POST',
                 success: res => {
-                  
-                  for (var i = 0; i < res.data.result.length; i++) {
-                    markers_new.push({
-                      latitude: res.data.result[i].locationLatitude,
-                      longitude: res.data.result[i].locationLongitude,
-                      iconPath: "../../resources/img/mark.svg",
-                      width: 40,
-                      height: 40,
-                      label: {
-                        content: res.data.result[i].nickname,
-                        color: "",
-                        fontSize: 16,
-                        textAlign: "center",
-                        x: 0,
-                        y: 0
-                      },
-                      callout: {
-                        content: 'hello',
-                        display: 'BYCLICK'
-                      }
-                    })
-                  }
+                  console.log(res.data)
 
-                  markers_new.push({
-                    latitude: moveLatitude,
-                    longitude: moveLongitude,
-                    iconPath: "../../resources/img/fox.gif",
-                    width: 160,
-                    height: 160,
-                    label: {
-                      content: "距离终点仅仅" + needWordCount + "单词",
-                      color: "",
-                      fontSize: 16,
-                      textAlign: "center",
-                      x: 0,
-                      y: 0
-                    },
-                    callout: {
-                      content: 'hello',
-                      display: 'ALWAYS'
-                    }
-                  }, {
-                      latitude: zd.latitudeCustom,
-                      longitude: zd.longitudeCustom,
-                      iconPath: "../../resources/img/fox.gif",
-                      width: 120,
-                      height: 120,
-                      label: {
-                        content: "this is beiJing",
-                        color: "",
-                        fontSize: 16,
-                        textAlign: "center",
-                        x: 0,
-                        y: 0
-                      },
-                      callout: {
-                        content: 'hello',
-                        display: 'ALWAYS'
+                  var moveHeadUri = res.data.result.headUri;
+                  var movename = res.data.result.nickname;
+                  var markers_new = [];
+
+                  wx.request({
+                    url: 'https://vczyh.top/wxapp/v1.0/all/users',
+                    method: 'POST',
+                    success: res => {
+
+                      console.log(res.data.result)
+                      for (var i = 0; i < res.data.result.length; i++) {
+                        markers_new.push({
+                          latitude: res.data.result[i].locationLatitude,
+                          longitude: res.data.result[i].locationLongitude,
+                          iconPath: "../../resources/img/near.jpg",
+                          width: 30,
+                          height: 30,
+                          // label: {
+                          //   content: res.data.result[i].nickname,
+                          //   color: "",
+                          //   fontSize: 12,
+                          //   textAlign: "center",
+                          //   x: 0,
+                          //   y: 0
+                          // },
+                          callout: {
+                            content: res.data.result[i].nickname,
+                            display: 'ALWAYS',
+                            bgColor: '	#000000',
+                            fontSize: 12,
+                            borderRadius: '',
+                            textAlign: 'center'
+                          }
+                        })
                       }
-                    })
-                  this.setData({
-                    markers: markers_new,
-                    mylatitude: moveLatitude,
-                    mylongitude: moveLongitude,
-                    polyline: [{
-                      points: [{
-                        longitude: 114.477753,
-                        latitude: 36.602614
-                      }, {
+
+                      markers_new.push({
+                        latitude: moveLatitude,
                         longitude: moveLongitude,
-                        latitude: moveLatitude
-                      }],
-                      color: "#FF0000DD",
-                      width: 1,
-                      dottedLine: true,
-                      borderColor: "#BF0520DD",
-                      borderWidth: 2,
-                      arrowLine: true,
-                    }],
+                        iconPath: "../../resources/img/head.jpg",
+                        width: 30,
+                        height: 30,
+                        //  label: {
+                        //    content: "距离终点仅仅" + needWordCount + "单词",
+                        //    color: "",
+                        //    fontSize: 12,
+                        //    textAlign: "center",
+                        //    x: 0,
+                        //    y: 0
+                        //  },
+                        callout: {
+                          content: movename,
+                          display: 'ALWAYS'
+                        }
+                      }, {
+                          latitude: zd.latitudeCustom,
+                          longitude: zd.longitudeCustom,
+                          iconPath: "../../resources/img/flag.jpg",
+                          width: 40,
+                          height: 40,
+                          //  label: {
+                          //    content: zdname,
+                          //    color: "",
+                          //    fontSize: 16,
+                          //    textAlign: "center",
+                          //    x: 0,
+                          //    y: 0
+                          //  },
+                          callout: {
+                            content: zdname + ',You need ' + needWordCount + ' word',
+                            display: 'ALWAYS'
+                          }
+                        })
+                      this.setData({
+                        markers: markers_new,
+                        mylatitude: moveLatitude,
+                        mylongitude: moveLongitude,
+                        polyline: [{
+                          points: [
+                            //   {
+                            //   longitude: 114.477753,
+                            //   latitude: 36.602614
+                            // },
+                            {
+                              longitude: moveLongitude,
+                              latitude: moveLatitude
+                            }, {
+                              longitude: zd.longitudeCustom,
+                              latitude: zd.latitudeCustom
+                            }],
+                          color: "#FF0000DD",
+                          width: 1,
+                          dottedLine: true,
+                          borderColor: "	#F08080",
+                          borderWidth: 2,
+                          arrowLine: true,
+                        }],
+                      })
+                    }
                   })
+
                 }
               })
-              
             }
           })
         }
@@ -158,6 +191,7 @@ Page({
         url: 'https://vczyh.top/wxapp/v1.0/all/users',
         method: 'POST',
         success: res => {
+          console.log(res)
           wx.getLocation({
             type: 'gcj-02',
             altitude: true,
@@ -171,31 +205,40 @@ Page({
               })
             },
           })
-          console.log(res)
-          // var mylatitude = res.data.result[1].locationLatitude,
-          // var mylongitude = res.data.result[1].locationLongitude,
+          
           for (var i = 0; i < res.data.result.length; i++) {
             markers_two.push({
               latitude: res.data.result[i].locationLatitude,
               longitude: res.data.result[i].locationLongitude,
-              iconPath: "../../resources/img/mark.svg",
-              width: 40,
-              height: 40,
-              label: {
-                content: res.data.result[i].nickname,
-                color: "",
-                fontSize: 16,
-                textAlign: "center",
-                x: 0,
-                y: 0
-              },
+              iconPath: "../../resources/img/near.jpg",
+              width: 30,
+              height: 30,
+              // label: {
+              //   content: res.data.result[i].nickname,
+              //   color: "",
+              //   fontSize: 16,
+              //   textAlign: "center",
+              //   x: 0,
+              //   y: 0
+              // },
               callout: {
-                content: 'hello',
-                display: 'BYCLICK'
+                content: res.data.result[i].nickname,
+                display: 'ALWAYS'
               }
             })
           }
+          // markers_two.push({
 
+          //   latitude: moveLatitude,
+          //   longitude: moveLongitude,
+          //   iconPath: "../../resources/img/head.jpg",
+          //   width: 30,
+          //   height: 30,
+          //   callout: {
+          //     content: movename,
+          //     display: 'ALWAYS'
+          //   }
+          // })
           this.setData({
             markers: markers_two,
           })
@@ -205,187 +248,10 @@ Page({
 
 
 
-    // wx.getStorage({
-    //   key: 'token',
-    //   success: res => {
-    //     console.log(res.data)
-    //     wx.request({
-    //       url: 'https://vczyh.top/wxapp/v1.0/usermap/fetch/PresentCoord/' + res.data.result,
-    //       method: 'POST',
-    //       data: {
-    //         startPointId: qd.id,
-    //         endPointId: zd.id
-    //       },
-    //       success: res => {
-    //         console.log(res.data.result)
-    //         var needWordCount = res.data.result.needWordCount;
-    //         var moveLatitude = res.data.result.latitude;
-    //         var moveLongitude = res.data.result.longitude
-    //         var markers_new = [];
-    //         wx.request({
-    //           url: 'https://vczyh.top/wxapp/v1.0/all/users',
-    //           method: 'POST',
-    //           success: res => {
-    //             for (var i = 0; i < res.data.result.length; i++) {
-    //               markers_new.push({
-    //                 latitude: res.data.result[i].locationLatitude,
-    //                 longitude: res.data.result[i].locationLongitude,
-    //                 iconPath: "../../resources/img/mark.svg",
-    //                 width: 40,
-    //                 height: 40,
-    //                 label: {
-    //                   content: res.data.result[i].nickname,
-    //                   color: "",
-    //                   fontSize: 16,
-    //                   textAlign: "center",
-    //                   x: 0,
-    //                   y: 0
-    //                 },
-    //                 callout: {
-    //                   content: 'hello',
-    //                   display: 'BYCLICK'
-    //                 }
-    //               })
-    //             }
-
-    //             markers_new.push({
-    //               latitude: moveLatitude,
-    //               longitude: moveLongitude,
-    //               iconPath: "../../resources/img/fox.gif",
-    //               width: 160,
-    //               height: 160,
-    //               label: {
-    //                 content: "距离终点仅仅" + needWordCount + "单词",
-    //                 color: "",
-    //                 fontSize: 16,
-    //                 textAlign: "center",
-    //                 x: 0,
-    //                 y: 0
-    //               },
-    //               callout: {
-    //                 content: 'hello',
-    //                 display: 'ALWAYS'
-    //               }
-    //             }, {
-    //                 latitude: zd.latitudeCustom,
-    //                 longitude: zd.longitudeCustom,
-    //                 iconPath: "../../resources/img/fox.gif",
-    //                 width: 160,
-    //                 height: 160,
-    //                 label: {
-    //                   content: "this is beiJing",
-    //                   color: "",
-    //                   fontSize: 16,
-    //                   textAlign: "center",
-    //                   x: 0,
-    //                   y: 0
-    //                 },
-    //                 callout: {
-    //                   content: 'hello',
-    //                   display: 'ALWAYS'
-    //                 }
-    //               })
-    //             this.setData({
-    //               markers: markers_new,
-    //               mylatitude: moveLatitude,
-    //               mylongitude: moveLongitude,
-    //               polyline: [{
-    //                 points: [{
-    //                   longitude: 114.477753,
-    //                   latitude: 36.602614
-    //                 }, {
-    //                   longitude: moveLongitude,
-    //                   latitude: moveLatitude
-    //                 }],
-    //                 color: "#FF0000DD",
-    //                 width: 1,
-    //                 dottedLine: true,
-    //                 borderColor: "#BF0520DD",
-    //                 borderWidth: 2,
-    //                 arrowLine: true,
-    //               }],
-    //             })
-    //           }
-    //         })
-
-    //         console.log(markers_new.length)
-    //         this.setData({
-    //           // markers: markers_new,
-    //           // mylatitude: res.data.result.latitude,
-    //           // mylongitude: res.data.result.longitude,
-    //           // markers: [{
-    //           //   iconPath: "../../resources/img/mark.svg",
-    //           //   id: 10,
-    //           //   latitude: res.data.result.latitude,
-    //           //   longitude: res.data.result.longitude,
-    //           //   width: 40,
-    //           //   height: 40,
-    //           //   label: {
-    //           //     content: "helloOne",
-    //           //     color: "green",
-    //           //     fontSize: 16,
-    //           //     textAlign: "center",
-    //           //     x: 0,
-    //           //     y: 0
-    //           //   },
-    //           //   callout: {
-    //           //     content: 'hello',
-    //           //     display: 'ALWAYS',
-    //           //     fontSize: 16,
-    //           //   }
-    //           // }],
-    //           // polyline: [{
-    //           //   points: [{
-    //           //     longitude: 114.477753,
-    //           //     latitude: 36.602614
-    //           //   }, {
-    //           //     longitude: res.data.result.longitude,
-    //           //     latitude: res.data.result.latitude
-    //           //   }],
-    //           //   color: "#FF0000DD",
-    //           //   width: 1,
-    //           //   dottedLine: true,
-    //           //   borderColor: "#BF0520DD",
-    //           //   borderWidth: 2,
-    //           //   arrowLine: true,
-    //           // }],
-    //         })
-    //       }
-    //     })
-    //   }
-    // })
-
-    wx.request({
-      url: 'https://vczyh.top/wxapp/v1.0/all/users',
-      method: 'POST',
+    wx.getStorage({
+      key: 'token',
       success: res => {
-        console.log(res.data.result)
-        var markers_new = [];
-        for (var i = 0; i < res.data.result.length; i++) {
-          markers_new.push({
-            latitude: res.data.result[i].locationLatitude,
-            longitude: res.data.result[i].locationLongitude,
-            iconPath: "../../resources/img/mark.svg",
-            width: 40,
-            height: 40,
-            label: {
-              content: res.data.result[i].nickname,
-              color: "green",
-              fontSize: 16,
-              textAlign: "center",
-              x: 0,
-              y: 0
-            },
-            callout: {
-              content: 'hello',
-              display: 'BYCLICK'
-            }
-          })
-        }
-        console.log(markers_new)
-        // this.setData({
-        //   markers: markers_new,
-        // })
+        console.log(res.data)
       }
     })
 
@@ -396,17 +262,6 @@ Page({
         this.setData({
           map_width: res.windowWidth,
           map_height: res.windowHeight,
-          // controls: [{
-          //   id: 1,
-          //   iconPath: '../../resources/img/MarkerBlack.svg',
-          //   position: {
-          //     left: res.windowWidth / 2 - 8,
-          //     top: res.windowWidth / 2 - 16,
-          //     width: 30,
-          //     height: 30
-          //   },
-          //   clickable: true
-          // }]
         })
       }
     })

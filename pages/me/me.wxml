@@ -18,7 +18,7 @@
   <scroll-view scroll>
     <sc-cell id="resume" sc-class="person-cell" left-icon="iconfont icon-upstage">排名: 1
     </sc-cell>
-    <sc-cell id="myhire" sc-class="person-cell" left-icon="iconfont icon-favor_fill_light" bindtap="gotoct">已斩单词: {{yzcd}}
+    <sc-cell id="myhire" sc-class="person-cell" left-icon="iconfont icon-favor_fill_light" bindtap="gotoct">已掌握单词: {{yzcd}}
     </sc-cell>
     <sc-cell sc-class="person-cell" left-icon="iconfont icon-light" bindtap="gotosc">已收藏词汇: {{sccd}}</sc-cell>
     <sc-cell sc-class="person-cell" left-icon="iconfont icon-round_close_fill_light" bindtap="gotoz">错误单词: {{cwcd}}</sc-cell>

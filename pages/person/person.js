@@ -105,7 +105,7 @@ Page({
     })
 
   },
-  // 展示已斩单词
+  // 展示已掌握单词
   showzdc: function (options) {
     // 获取单词同时控制显示
     // 把本地存储的token拿出来
@@ -128,7 +128,7 @@ Page({
             if (res.data.message === "success") {
               wx.showToast({ // 显示Toast
 
-                title: '获取已斩单词成功',
+                title: '获取已掌握单词成功',
 
                 icon: 'success',
 

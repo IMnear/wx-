@@ -33,7 +33,7 @@ background: linear-gradient(to right, #d7d2cc, #304352); /* W3C, IE 10+/ Edge, F
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
   text-transform: uppercase;
   display: block;
-  font-size: 92px;
+  font-size: 72px;
   color: #f1ebe5;
   text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
   font-weight: bold;
@@ -115,4 +115,37 @@ button {
 
 .theme-3 .ripple-obj {
 	fill: #00695C;
+}
+#tutu{
+  width:100%;  
+  height:100%;  
+  background-size: cover;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0;
+}
+.word-content {
+  margin: 114rpx auto 18rpx;
+  font-family: Chalkboard;
+  font-size: 64rpx;
+}
+
+.pron-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.pron-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.word-pron {
+  margin-left: 9rpx;
+  font-family: Chalkboard;
+  font-size: 36rpx;
+  color: #8F8F8F;
 }
