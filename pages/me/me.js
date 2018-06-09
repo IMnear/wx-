@@ -380,6 +380,33 @@ Page({
           }
 
         })
+        // 获取用户当前排名
+        wx.request({
+          url: "https://vczyh.top/wxapp/v1.0/user/ranking/" + res.data.result,
+          // data: data,
+          method: 'POST',
+          header: {
+            // "Content-Type":"application/json"
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.message === "success") {
+              that.setData({
+
+
+                pm: res.data.result,
+
+              })
+
+            }
+
+
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+
+        })
       },
       /**
        * 失败会调用

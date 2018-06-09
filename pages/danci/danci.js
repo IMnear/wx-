@@ -51,15 +51,15 @@ Page({
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
               // 掌握词消息提示
-              wx.showToast({ // 显示Toast
-
-                title: '收藏单词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '收藏单词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               // 调用获取单词接口实现数据刷新
               wx.request({
                 url: "https://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
@@ -191,15 +191,15 @@ Page({
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
               // 掌握词消息提示
-              wx.showToast({ // 显示Toast
-
-                title: '掌握词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '掌握词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               // 调用获取单词接口实现数据刷新
               wx.request({
                 url: "https://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,
@@ -288,15 +288,15 @@ Page({
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
               // 掌握词消息提示
-              wx.showToast({ // 显示Toast
-
-                title: '掌握词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '掌握词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               // 调用获取单词接口实现数据刷新
               wx.request({
                 url: "https://vczyh.top/wxapp/v1.0/user/word/" + ineedtoken,

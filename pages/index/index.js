@@ -27,17 +27,31 @@ Page({
   },
 
   //选择城市
-  xzCity: function () {
-    wx.chooseLocation({
-      success: res => {
-        console.log(res)
-        //把res存到语亨的借口里就行
-      }
-    })
-  },
+  // xzCity: function () {
+  //   wx.chooseLocation({
+  //     success: res => {
+  //       console.log(res)
+
+  //       //把res存到语亨的借口里就行
+  //     }
+  //   })
+  // },
 
   onLoad: function () {
 
+
+  },
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+  controltap(e) {
+    console.log(e)
+  },
+
+  onShow: function () {
     //获取当前登陆用户个人信息
     wx.getStorage({
       key: 'token',
@@ -119,17 +133,11 @@ Page({
                         iconPath: "../../resources/img/head.jpg",
                         width: 30,
                         height: 30,
-                        //  label: {
-                        //    content: "距离终点仅仅" + needWordCount + "单词",
-                        //    color: "",
-                        //    fontSize: 12,
-                        //    textAlign: "center",
-                        //    x: 0,
-                        //    y: 0
-                        //  },
                         callout: {
                           content: movename,
-                          display: 'ALWAYS'
+                          display: 'ALWAYS',
+                          bgColor: '	#000000',
+                          fontSize: 12,
                         }
                       }, {
                           latitude: zd.latitudeCustom,
@@ -205,7 +213,7 @@ Page({
               })
             },
           })
-          
+
           for (var i = 0; i < res.data.result.length; i++) {
             markers_two.push({
               latitude: res.data.result[i].locationLatitude,
@@ -266,43 +274,4 @@ Page({
       }
     })
   },
-  regionchange(e) {
-    console.log(e.type)
-  },
-  markertap(e) {
-    console.log(e.markerId)
-  },
-  controltap(e) {
-    // var markers_new = [];
-    console.log(e)
-
-    if (e.timeStamp % 2 == 0) {
-      this.setData({
-        mylongitude: 116.42713376,
-        mylatitude: 39.902785559,
-      })
-    } else {
-      this.setData({
-        mylongitude: 114.867629152,
-        mylatitude: 37.2626483118
-      });
-    }
-  },
-
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
 })
-
-//   //事件处理函数
-//   bindViewTap: function() {
-//     wx.navigateTo({
-//       url: '../logs/logs'
-//     })
-//   },
-

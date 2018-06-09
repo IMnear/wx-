@@ -21,6 +21,20 @@ Page({
     // 动画效果
     animationData: {}
   },
+  // 点赞方法
+  dz:function(){
+    // 掌握词消息提示
+    wx.showToast({ // 显示Toast
+
+      title: '谢谢',
+
+      image: '../../resources/img/appreciate_fill.png',
+
+
+      duration: 1500
+
+    })
+  },
   // 跳转个人信息界面
   gotome: function () {
     console.log('a a a ')
@@ -68,15 +82,15 @@ Page({
           success: function (res) {
             console.log(res.data)
             if (res.data.message === "success") {
-              wx.showToast({ // 显示Toast
-
-                title: '获取错误单词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '获取错误单词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               that.setData({
 
                 cwdclist: res.data.result,
@@ -126,15 +140,15 @@ Page({
           success: function (res) {
             console.log(res.data)
             if (res.data.message === "success") {
-              wx.showToast({ // 显示Toast
+              // wx.showToast({ // 显示Toast
 
-                title: '获取已掌握单词成功',
+              //   title: '获取已掌握单词成功',
 
-                icon: 'success',
+              //   icon: 'success',
 
-                duration: 1500
+              //   duration: 1500
 
-              })
+              // })
               that.setData({
 
                 zdclist: res.data.result,

@@ -27,9 +27,8 @@
             </sc-cell>
             <sc-cell sc-class="person-cell" left-icon="iconfont icon-service" right-icon="iconfont icon-right" bindtap="gotosc">收藏词汇</sc-cell>
             <sc-cell sc-class="person-cell" left-icon="iconfont icon-sort" right-icon="iconfont icon-right" bindtap="gotoz">已掌握词汇情况</sc-cell>
-            <!-- <sc-cell sc-class="person-cell" left-icon="iconfont icon-settings">设置
-            </sc-cell>
-            <sc-cell sc-class="person-cell" left-icon="iconfont icon-appreciate">点个赞把</sc-cell> -->
+             <!-- <sc-cell sc-class="person-cell" left-icon="iconfont icon-settings">设置</sc-cell> -->
+            <sc-cell sc-class="person-cell" left-icon="iconfont icon-appreciate" bindtap="dz">点个赞把</sc-cell> 
     </scroll-view>
 
     <sc-button wx:if="{{isLogin}}" sc-class="sc-btn quit-btn" bind:tap="logout">

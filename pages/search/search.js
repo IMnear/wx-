@@ -67,15 +67,15 @@ Page({
       success: function (res) {
         console.log(res.data)
         if (res.data.message === "success") {
-          wx.showToast({ // 显示Toast
-
-            title: '搜索单词列表成功',
-
-            icon: 'success',
-
-            duration: 1500
-
-          })
+//        wx.showToast({ // 显示Toast
+//
+//          title: '搜索单词列表成功',
+//
+//          icon: 'success',
+//
+//          duration: 1500
+//
+//        })
           // 增加搜索历史
           const lssz = wx.getStorageSync('searchHistory');
           lssz.push(value);

@@ -32,15 +32,15 @@ Page({
           success: function (res) {
             console.log(res.data)
             if (res.data.message === "success") {
-              wx.showToast({ // 显示Toast
-
-                title: '获取错误单词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '获取错误单词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               that.setData({
 
                 cwdclist: res.data.result,
@@ -106,15 +106,15 @@ Page({
             console.log(res.data, "返回结果")
             if (res.data.message === "success") {
               // 掌握词消息提示
-              wx.showToast({ // 显示Toast
-
-                title: '掌握词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '掌握词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               // 调用获取错误单词接口实现数据刷新
               wx.request({
                 url: "https://vczyh.top/wxapp/v1.0/user/words/collect/list/" + ineedtoken,
@@ -208,15 +208,15 @@ Page({
           success: function (res) {
             console.log(res.data)
             if (res.data.message === "success") {
-              wx.showToast({ // 显示Toast
-
-                title: '获取收藏单词成功',
-
-                icon: 'success',
-
-                duration: 1500
-
-              })
+//            wx.showToast({ // 显示Toast
+//
+//              title: '获取收藏单词成功',
+//
+//              icon: 'success',
+//
+//              duration: 1500
+//
+//            })
               that.setData({
 
                 cwdclist: res.data.result,

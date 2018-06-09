@@ -25,6 +25,30 @@ Page({
    */
   onLoad: function (options) {
 
+    //随机背景图片
+    wx.getStorage({
+      key: 'backimage',
+      success: res => {
+        this.setData({
+          backimage: res.data
+        })
+      },
+    })
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
     //获取当前登陆用户排名
     wx.getStorage({
       key: 'token',
@@ -95,20 +119,6 @@ Page({
         })
       }
     })
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

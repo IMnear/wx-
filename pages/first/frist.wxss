@@ -131,6 +131,7 @@ button {
   margin: 114rpx auto 18rpx;
   font-family: Chalkboard;
   font-size: 64rpx;
+  color: white;
 }
 
 .pron-container {

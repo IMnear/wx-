@@ -114,6 +114,10 @@ Page({
         // "Content-Type":"application/json"
       },
       success: function (res) {
+        wx.setStorage({
+          key: 'backimage',
+          data: res.data.result.image.imageUri,
+        })
         console.log(res.data, "返回结果")
         if (res.data.message === "success") {
           that.setData({

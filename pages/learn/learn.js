@@ -12,139 +12,154 @@ Page({
     cslist:[],
     ineeddc:0,
     alldc:0,
-    jdt:0
+    jdt:0,
+    showszlv:false
   },
   // 进度条
   // 确认旅途方法
   qrlt:function(){
     var that = this;
-    var qdid = this.data.accountIndex + 1;
-    var zdid = this.data.accountIndexto + 1;
+    var qdid = Number(this.data.accountIndex) + Number(1);
+    var zdid = Number(this.data.accountIndexto) + Number(1);
     console.log(qdid, zdid,'两个地点')
-    wx.getStorage({
-      //获取数据的key
-      key: 'token',
-      success: function (res) {
-        console.log(res)
-        var ineedtoken = res.data.result
-        console.log(ineedtoken, "token变量")
-        wx.request({
-          url: "https://vczyh.top/wxapp/v1.0/usermap/set/startPointIdAndendPointId/" + ineedtoken,
-          data: {
-            // code: res.code
-            "startPointId": qdid,
-            "endPointId": zdid
+    if (qdid === zdid){
+      // 相同地点提示
+           wx.showToast({ // 显示Toast
 
-          },
-          method: 'POST',
-          header: {
-            // "Content-Type":"application/json"
-          },
-          success: function (res) {
-            console.log(res.data, "返回结果")
-            if (res.data.message === "success") {
-              // 消息提示
-              wx.showToast({ // 显示Toast
+             title: '地点相同',
 
-                title: '设置旅途成功',
+             image: '../../resources/img/round_close_fill.png',
 
-                icon: 'success',
+             duration: 1500
 
-                duration: 1500
+           })
+    }else{
+      wx.getStorage({
+        //获取数据的key
+        key: 'token',
+        success: function (res) {
+          console.log(res)
+          var ineedtoken = res.data.result
+          console.log(ineedtoken, "token变量")
+          wx.request({
+            url: "https://vczyh.top/wxapp/v1.0/usermap/set/startPointIdAndendPointId/" + ineedtoken,
+            data: {
+              // code: res.code
+              "startPointId": qdid,
+              "endPointId": zdid
 
-              })
-              // 将返回信息保存到本地
-              wx.setStorageSync('lv', res.data.result);
-              
-              
-              // 获取当前用户剩余单词量
-              wx.getStorage({
-                //获取数据的key
-                key: 'token',
-                success: function (res) {
-                  console.log(res)
-                  var ineedtoken = res.data.result
-                  if (wx.getStorageSync('lv')) {
-                    var lv = wx.getStorageSync('lv');
-                    var ineedstartPointId = lv.startPoint.id
-                    var ineedendPointId = lv.endPoint.id
-                    console.log('取出的储存-起点id-终点id', lv, ineedstartPointId, ineedendPointId)
-                    console.log(ineedtoken, "token变量")
-                    wx.request({
-                      url: "https://vczyh.top/wxapp/v1.0/usermap/fetch/RemanentWordCount/" + ineedtoken,
-                      data: {
-                        // code: res.code
-                        startPointId: ineedstartPointId,
-                        endPointId: ineedendPointId,
+            },
+            method: 'POST',
+            header: {
+              // "Content-Type":"application/json"
+            },
+            success: function (res) {
+              console.log(res.data, "返回结果")
+              if (res.data.message === "success") {
+                // 消息提示
+                wx.showToast({ // 显示Toast
 
-                      },
-                      method: 'POST',
-                      header: {
-                        // "Content-Type":"application/json"
-                      },
-                      success: function (res) {
-                        console.log(res.data, "返回结果")
-                        if (res.data.message === "success") {
+                  title: '设置旅途成功',
 
-                          that.setData({
-                            ineeddc: res.data.result.remanentCount,
-                            alldc: res.data.result.needRememberCount,
-                            jdt: (res.data.result.needRememberCount - res.data.result.remanentCount) / res.data.result.needRememberCount * 100
-                          })
+                  icon: 'success',
 
+                  duration: 1500
+
+                })
+                // 将返回信息保存到本地
+                wx.setStorageSync('lv', res.data.result);
+
+
+                // 获取当前用户剩余单词量
+                wx.getStorage({
+                  //获取数据的key
+                  key: 'token',
+                  success: function (res) {
+                    console.log(res)
+                    var ineedtoken = res.data.result
+                    if (wx.getStorageSync('lv')) {
+                      var lv = wx.getStorageSync('lv');
+                      var ineedstartPointId = lv.startPoint.id
+                      var ineedendPointId = lv.endPoint.id
+                      console.log('取出的储存-起点id-终点id', lv, ineedstartPointId, ineedendPointId)
+                      console.log(ineedtoken, "token变量")
+                      wx.request({
+                        url: "https://vczyh.top/wxapp/v1.0/usermap/fetch/RemanentWordCount/" + ineedtoken,
+                        data: {
+                          // code: res.code
+                          startPointId: ineedstartPointId,
+                          endPointId: ineedendPointId,
+
+                        },
+                        method: 'POST',
+                        header: {
+                          // "Content-Type":"application/json"
+                        },
+                        success: function (res) {
+                          console.log(res.data, "返回结果")
+                          if (res.data.message === "success") {
+
+                            that.setData({
+                              ineeddc: res.data.result.remanentCount,
+                              alldc: res.data.result.needRememberCount,
+                              jdt: (res.data.result.needRememberCount - res.data.result.remanentCount) / res.data.result.needRememberCount * 100
+                            })
+
+                          }
+
+
+
+                        },
+                        fail: function (err) {
+                          console.log(err)
                         }
 
+                      })
+                    } else {
+                      wx.showToast({ // 显示Toast
+
+                        title: '请先设置旅途',
+                        image: '../../resources/img/map.png',
+
+                        duration: 2500
+
+                      })
+                    }
 
 
-                      },
-                      fail: function (err) {
-                        console.log(err)
-                      }
 
-                    })
-                  } else {
-                    wx.showToast({ // 显示Toast
-
-                      title: '请先设置旅途',
-                      image: '../../resources/img/map.png',
-
-                      duration: 2500
-
-                    })
+                  },
+                  /**
+                   * 失败会调用
+                   */
+                  fail: function (res) {
+                    console.log(res)
                   }
+                })
+
+
+              }
 
 
 
-                },
-                /**
-                 * 失败会调用
-                 */
-                fail: function (res) {
-                  console.log(res)
-                }
-              })
-              
-
+            },
+            fail: function (err) {
+              console.log(err)
             }
 
+          })
 
 
-          },
-          fail: function (err) {
-            console.log(err)
-          }
-
-        })
-
-
-      },
-      /**
-       * 失败会调用
-       */
-      fail: function (res) {
-        console.log(res)
-      }
-    })
+        },
+        /**
+         * 失败会调用
+         */
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    }
+    
 
   },
   // 下拉列表方法终点
@@ -337,6 +352,10 @@ Page({
             duration: 2500
 
           })
+          that.setData({
+           showszlv:true
+          })
+
         }
         
 

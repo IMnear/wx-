@@ -1,15 +1,14 @@
 <!--pages/paiming/paiming.wxml-->
 <view class="page">
   <view class="page__bd">
-    <view style="background-image: url('https://vczyh.top/image/IMG_4208.JPG');background-size: cover;height:240px">
 
-      <!-- <view class="weui-cell__bd">{{firstNickname}}</view> -->
+    <view style="background-image: url('{{backimage}}');background-size: cover;height:240px">
       <view class="weui-flex">
         <view class="weui-flex__item">
           <view class="placeholder" style="text-shadow: 5px 2px 2px 2px #EDEDED">
             <image src="{{firstHeadUri}}" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;border-radius:25px">
             </image>
-            霸占了社会人
+            抢占了第一名
           </view>
         </view>
       </view>
@@ -20,13 +19,14 @@
         <view class="weui-cell__hd" style="margin-left:20px;margin-right:10px">
           <image src="{{myHeadUri}}" style="vertical-align: middle;width:30px; height: 30px;border-radius:25px"></image>
         </view>
-        <view style="flex-direction:row;">
+        <view class="weui-cell__bd">
           <view class="weui-cell__bd">{{myNickname}}</view>
           <view style="margin-right:10px">第{{myMingci}}名</view>
         </view>
-        <view class="weui-cell__ft" style="font-size:30px; color:	#00CD00;margin-right:10px">{{myRememberCount}}</view>
+        <view class="weui-cell__ft" style="font-size:30px; color:	#00CD00;margin-right:20px">{{myRememberCount}}</view>
       </view>
     </view>
+
     <view style="height:10px;background-color:#EAEAEA">
     </view>
 
