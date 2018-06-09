@@ -1,37 +1,53 @@
-<!-- pages/danci/danci.wxml--> 
+<!-- pages/danci/danci.wxml-->
 
 <!--显示基本单词信息  -->
 <view class="container" wx:if="{{showjb}}">
-    <text class="word-content">{{storageContent.word}}</text>
-    <view class="pron-container">
-      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
-      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
-    </view>
-    <view class="button-miss" catchtap="killdanci">
-      <text class="word-miss"  >掌握</text>
-    </view>
-    <view class="button-next" catchtap='scdanci'>
-      <text class="word-next"  >收藏</text>
-    </view>
-    <view class="button-miss" catchtap='tishianniu'>
-     <text class="word-next"  >请求提示</text>
-    </view>
+  <text class="word-content">{{storageContent.word}}</text>
+  <view class="pron-container">
+    <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+    <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    <image bindtap='audioPlay' class="pron-icon" src="/resources/img/notification_fill.png"></image>
+  </view>
+  <!--  -->
+  <!-- <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="https://dictionary.blob.core.chinacloudapi.cn/media/audio/tom/73/82/7382B7E0059EB2F278AA424FDD39110B.mp3" action="{{action}}" controls></audio> -->
+<audio src="{{storageContent.voiceUsUri}}" action="{{action}}" controls style='display: none;'></audio>
+  <!-- <button type="primary" bindtap="audioPlay">播放</button> -->
+  
+     
+    
+  <!-- <button type="primary" bindtap="audioPause">暂停</button>
+<button type="primary" bindtap="audioPlaybackRateSpeedUp">调为2倍速</button>
+<button type="primary" bindtap="audioPlaybackRateNormal">调为1倍速</button>
+<button type="primary" bindtap="audioPlaybackRateSlowDown">调为0.5倍速</button>
+<button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+<button type="primary" bindtap="audioStart">回到开头</button> -->
+  <!--  -->
+  <view class="button-miss" catchtap="killdanci">
+    <text class="word-miss">掌握</text>
+  </view>
+  <view class="button-next" catchtap='scdanci'>
+    <text class="word-next">收藏</text>
+  </view>
+  <view class="button-miss" catchtap='tishianniu'>
+    <text class="word-next">请求提示</text>
+  </view>
 </view>
 <!--单词的api  -->
 
 <!--显示基本单词详细信息  -->
 <view class="container" wx:if="{{showxx}}">
-    <text class="word-content">{{storageContent.word}}</text>
-    <view class="pron-container">
-      <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
-      <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
-    </view>
-     <text  class="word-definition">{{storageContent.translate1}}</text> 
-     <view class="button-miss" catchtap="killdancixx">
-      <text class="word-miss"  >掌握</text>
-    </view> 
-    <view style=' margin-bottom: 150rpx' class="button-next" catchtap='nextgo'>
-      <text class="word-next"  >下一步</text>
-    </view>
+  <text class="word-content">{{storageContent.word}}</text>
+  <view class="pron-container">
+    <image class="pron-icon" src="/resources/img/pron-icon.png"></image>
+    <text class="word-pron" bindtap="read">/{{storageContent.soundmarkUk}}/</text>
+    <image bindtap='audioPlay' class="pron-icon" src="/resources/img/notification_fill.png"></image>
+  </view>
+  <audio src="{{storageContent.voiceUsUri}}" action="{{action}}" controls style='display: none;'></audio>
+  <text class="word-definition">{{storageContent.translate1}}</text>
+  <view class="button-miss" catchtap="killdancixx">
+    <text class="word-miss">掌握</text>
+  </view>
+  <view style=' margin-bottom: 150rpx' class="button-next" catchtap='nextgo'>
+    <text class="word-next">下一步</text>
+  </view>
 </view>
-

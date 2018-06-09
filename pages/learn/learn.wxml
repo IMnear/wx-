@@ -44,9 +44,9 @@
       <view>
         <view class="placeholder">
           <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx'>
-            <view class="placeholder" style='margin：20rpx;font-family: Chalkboard;font-size:15px'>出发点</view>
+            <view class="placeholder" style='margin：20rpx;font-family: Chalkboard;font-size:12px'>出发点</view>
             <view class="weui-cell weui-cell_select">
-                <view class="weui-cell__bd" style='font-size:15px'>
+                <view class="weui-cell__bd" style='font-size:12px'>
                     <picker bindchange="bindAccountChange" value="{{accountIndex}}" range="{{accounts}}">
                         <view class="weui-select">{{accounts[accountIndex]}}</view>
                     </picker>
@@ -64,9 +64,9 @@
       <view>
         <view class="placeholder">
           <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;border: 2rpx solid #353535;border-radius: 10rpx; '>
-            <view class="placeholder" style='margin：20rpx;font-family: Chalkboard;font-size:15px'>目的地</view>
+            <view class="placeholder" style='margin：20rpx;font-family: Chalkboard;font-size:12px'>目的地</view>
             <view class="weui-cell weui-cell_select">
-                <view class="weui-cell__bd" style='font-size:15px'>
+                <view class="weui-cell__bd" style='font-size:12px'>
                     <picker bindchange="bindAccountChangeto" value="{{accountIndexto}}" range="{{accountsto}}">
                         <view class="weui-select">{{accountsto[accountIndexto]}}</view>
                     </picker>

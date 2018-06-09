@@ -8,9 +8,58 @@ Page({
     showdanci: [],
     storageContent: '',
     showjb: true,
-    showxx: false
+    showxx: false,
+    poster: 'http://pic.pimg.tw/pam86591/1408719752-3322564110_n.jpg',
+    name: 'Sugar',
+    author: 'Maroon 5'
   },
-
+// 音频方法
+  audioPlay: function () {
+    this.setData({
+      action: {
+        method: 'play'
+      }
+    });
+  },
+  audioPause: function () {
+    this.setData({
+      action: {
+        method: 'pause'
+      }
+    });
+  },
+  audioPlaybackRateSpeedUp: function () {
+    this.setData({
+      action: {
+        method: 'setPlaybackRate',
+        data: 2//加快速度
+      }
+    });
+  },
+  audioPlaybackRateSlowDown: function () {
+    this.setData({
+      action: {
+        method: 'setPlaybackRate',
+        data: 0.5//小于零放慢速度
+      }
+    });
+  },
+  audio14: function () {
+    this.setData({
+      action: {
+        method: 'setCurrentTime',
+        data: 14
+      }
+    });
+  },
+  audioStart: function () {
+    this.setData({
+      action: {
+        method: 'setCurrentTime',
+        data: 0
+      }
+    });
+  },
   //选择城市
   xzCity: function () {
     wx.chooseLocation({
@@ -69,6 +118,7 @@ Page({
                   // "Content-Type":"application/json"
                 },
                 success: function (res) {
+                  console.log(res,'全部')
                   console.log(res.data)
 
                   that.setData({
@@ -447,6 +497,7 @@ Page({
             // "Content-Type":"application/json"
           },
           success: function (res) {
+            console.log(res,'------------------------------')
             console.log(res.data)
 
             that.setData({

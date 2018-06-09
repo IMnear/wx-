@@ -13,7 +13,7 @@ Page({
     ineeddc:0,
     alldc:0,
     jdt:0,
-    showszlv:false
+    showszlv:false,
   },
   // 进度条
   // 确认旅途方法
@@ -330,7 +330,9 @@ Page({
                 that.setData({
                   ineeddc: res.data.result.remanentCount,
                   alldc: res.data.result.needRememberCount,
-                  jdt: (res.data.result.needRememberCount - res.data.result.remanentCount) / res.data.result.needRememberCount * 100
+                  jdt: (res.data.result.needRememberCount - res.data.result.remanentCount) / res.data.result.needRememberCount * 100,
+                  accountIndex: Number(ineedstartPointId) - Number(1),
+                  accountIndexto: Number(ineedendPointId) - Number(1),
                 })
 
               }
